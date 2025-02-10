@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Determinate ProgressBar -->
+    <ProgressBar
+        android:id="@+id/determinateProgressBar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:progress="0"
+        android:max="100"
+        android:visibility="visible" />
+
+    <!-- Indeterminate ProgressBar -->
+    <ProgressBar
+        android:id="@+id/indeterminateProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/determinateProgressBar"
+        android:layout_marginTop="50dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <!-- Button to Start Progress -->
+    <Button
+        android:id="@+id/startProgressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/indeterminateProgressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Start Progress" />
+</RelativeLayout>
