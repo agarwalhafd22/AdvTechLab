@@ -1,0 +1,413 @@
+Toast Syntax:
+
+        //declare before onCreate
+
+        Button button;
+        EditText editText;
+
+        //inside onCreate
+
+        button = findViewById(R.id.button);
+        editText = findViewById(R.id.editText);
+
+        button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                            Toast.makeText(Quantity.this, "Text entered: "+editText.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+RadioGroup syntax:
+
+        //declare before onCreate
+
+        RadioGroup radioGroup;   //the ids of radioGroup
+        RadioButton radioButton1, radioButton2, radioButton3, radioButton4;   //the ids of radioButtons that will be needed
+
+
+        //in onCreate, declare on the basis of ids
+
+        radioGroup=findViewById(R.id.radioGroup);
+        radioButton1=findViewById(R.id.radioButton1);
+        radioButton2=findViewById(R.id.radioButton2);
+        radioButton3=findViewById(R.id.radioButton3);
+        radioButton4=findViewById(R.id.radioButton4);
+
+
+        //example for what to do when a radioButton inside radioGroup is clicked, make note of the ids
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if(checkedId == R.id.radioButton1){    //checkedId should match with the desired radioButton id
+                            //do necessary action
+                        }
+                    }
+                });
+
+
+        //to unclick radioButton in a group:
+        radioGroup.clearCheck(); //radioGroup id to be used
+
+
+
+CheckBox syntax:
+
+
+        //declare before onCreate
+
+        Checkbox checkBox1, checkBox2;
+        Button submit;
+
+        //in onCreate
+
+        checkBox1 = findViewById(R.id.checkbox1);
+        checkBox2 = findViewById(R.id.checkbox2);
+        submit = findViewById(R.id.submit);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        if (checkBox1.isChecked()) {   //to check if a checkBox is checked or not
+                            //do something
+                        }
+
+                        if (checkBox2.isChecked()) {
+                            //do something
+                        }
+
+                        if (!checkBox1.isChecked() && !checkBox2.isChecked()) {
+                            //check if any item is selected
+                        }
+
+                        );
+                    }
+                });
+
+
+
+         // to uncheck a checkBox:
+         checkBox1.setChecked(false);
+         checkBox1.setChecked(false);
+
+
+ToggleButton syntax:
+
+        in xml:
+        <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOff="Turn Off"
+                android:textOn="Turn On" />
+
+        java:
+
+        //declare before onCreate
+
+        ToggleButton toggleButton;
+
+        //inside onCreate
+
+        toggleButton = findViewById(R.id.toggleButton);
+        toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if (isChecked) {
+                        // When the ToggleButton is ON
+
+                    } else {
+                        // When the ToggleButton is OFF
+
+                    }
+                });
+
+
+AutoCompleteTextView Syntax:
+
+
+
+        XML:
+
+        <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type a country name"
+                android:completionThreshold="1" />
+
+
+        Java:
+
+        //declare before onCreate
+
+        AutoCompleteTextView autoCompleteTextView;
+
+        //inside onCreate
+
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        String[] countries = {"India", "Indonesia", "Ireland", "Iceland", "Italy", "Iran"}; //list to display for autoCompleteTextView
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                        this,
+                        android.R.layout.simple_dropdown_item_1line,
+                        countries
+                );
+
+                autoCompleteTextView.setAdapter(adapter);
+
+
+
+
+Alert Dialogue Box Syntax:
+
+
+
+        //inside onCreate
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+
+                alertDialogBuilder.setTitle("Exit Application?");
+                alertDialogBuilder.setMessage("Are you sure you want to quit?");
+
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        finish();          //do all the changes here
+                    }
+                });
+
+
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+
+
+
+
+Intent Syntax
+
+
+        (current activity = MainActivity, second activity = SecondActivity)
+
+        //To just navigate from one activity to another
+
+        Intent intent = new Intent (MainActivity.this, SecondActivity.class);
+        startActivity(intent);
+
+        //To pass values from one activity to another
+
+       // First activity:
+        Intent intent = new Intent (MainActivity.this, SecondActivity.class);
+        intent.putExtra("key", "value"); //"key" is the name given to the string to be passed, and "value" is the string which is being passed
+        //(for integer values:  intent.putExtra("key", 8968); replace string to be passed with the integer)
+        startActivity(intent);
+
+      //  Second activity:
+        Intent intent = getIntent();
+        String receivedString = intent.getStringExtra("key"); //use the name given to the string in the first activity
+        //(for integer values: int receivedValue = intent.getIntExtra("key", 0); // 0 is the default value if the key doesn't exist)
+
+
+
+Spinner Syntax
+
+
+        //declare before onCreate
+
+        Spinner spinner;
+
+
+        //inside onCreate
+
+        spinner = findViewById(R.id.spinner);
+
+        String[] items={"Select", "Banana", "Apple"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                if(position > 0){
+                    Toast.makeText(MainActivity.this, "Item Selected: "+ items[position], Toast.LENGTH_SHORT).show();
+                    //Here, items array is used for list, 0th index is "Select", start from 1st index
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+ListView syntax
+
+        //declare before onCreate
+        private ArrayList<String> items;
+        private ArrayAdapter<String> adapter;
+        ListView listViewItems;
+
+        //in onCreate
+
+        listViewItems = findViewById(R.id.listViewItems);
+        items = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        listViewItems.setAdapter(adapter);
+
+
+        //to hardcode values
+
+        items.add("Apple");
+        items.add("Banana");
+        ...
+        ...
+        ...
+
+        // to get a toast when an item is clicked in the list
+
+        listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // Get the clicked item
+                        String clickedItem = items.get(position);
+
+                        // Show a Toast with the clicked item's name
+                        Toast.makeText(MainActivity.this, "Clicked: " + clickedItem, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+        //to dynamically add items into the list by typing in an editText and tapping add button
+
+       buttonAdd.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       String newItem = editTextItem.getText().toString().trim();
+
+                       if (!newItem.isEmpty()) {
+                           // Add the item to the list
+                           items.add(newItem);
+
+                           // Notify the adapter of the update
+                           adapter.notifyDataSetChanged();
+
+                           // Clear the input field
+                           editTextItem.setText("");
+
+                           // Show a confirmation Toast
+                           Toast.makeText(MainActivity.this, "Item Added", Toast.LENGTH_SHORT).show();
+                       } else {
+                           // Show error message for empty input
+                           Toast.makeText(MainActivity.this, "Please enter an item", Toast.LENGTH_SHORT).show();
+                       }
+                   }
+               });
+
+
+
+               // to infiltrate the items of the listView based on items selected in the spinner
+               // items is the string array of spinner, listViewData is the ArrayList of ListView
+
+               spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                           @Override
+                           public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                               if(position > 0){
+                                   //Toast.makeText(MainActivity.this, "Item Selected: "+ items[position], Toast.LENGTH_SHORT).show();
+                                   String selectedItem = items[position];
+
+                                   // check the item is already there in the listView or not, if not, add
+                                   if (!listViewData.contains(selectedItem)) {
+                                       listViewData.add(selectedItem);
+                                       listViewAdapter.notifyDataSetChanged(); // Notify adapter to update ListView
+                                   }
+                               }
+                           }
+
+                           @Override
+                           public void onNothingSelected(AdapterView<?> adapterView) {
+
+                           }
+                       });
+
+DatePicker syntax:
+
+        //declare before onCreate
+
+        TextView dateTextView;
+
+        //inside onCreate
+        //this uses a textView and displays the chosen date from the dialog box
+
+        dateTextView = findViewById(R.id.dateTextView);
+
+        dateTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get the current date
+                        Calendar calendar = Calendar.getInstance();
+                        int year = calendar.get(Calendar.YEAR);
+                        int month = calendar.get(Calendar.MONTH);
+                        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+                        // Create and show the DatePickerDialog
+                        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                                MainActivity.this,
+                                (view, year1, month1, dayOfMonth1) -> {
+                                    // Update the TextView with the selected date
+                                    dateTextView.setText(dayOfMonth1 + "/" + (month1 + 1) + "/" + year1);
+                                },
+                                year, month, dayOfMonth);
+                        datePickerDialog.show();
+                    }
+                });
+
+TimePicker syntax:
+
+        //declare before onCreate
+
+                 private TextView timeTextView;
+
+                //inside onCreate
+                //this uses a textView and displays the chosen time from the dialog box
+
+                timeTextView = findViewById(R.id.timeTextView);
+
+                timeTextView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Get the current time
+                                Calendar calendar = Calendar.getInstance();
+                                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                                int minute = calendar.get(Calendar.MINUTE);
+
+                                // Create and show the TimePickerDialog
+                                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                                        MainActivity.this,
+                                        (view, hourOfDay, minute1) -> {
+                                            // Update the TextView with the selected time
+                                            timeTextView.setText(hourOfDay + ":" + (minute1 < 10 ? "0" + minute1 : minute1));
+                                        },
+                                        hour, minute, true);
+                                timePickerDialog.show();
+                            }
+                        });
+
+
