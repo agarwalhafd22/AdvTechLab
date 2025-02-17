@@ -3,6 +3,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -24,13 +26,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
         button = findViewById(R.id.button);
         button4 = findViewById(R.id.button4);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               goToSecondActivity();
+
+                goToSecondActivity();
             }
         });
 
@@ -40,11 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 
             }
         });
+
+
     }
 
     public void goToSecondActivity()
     {
+
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        intent.putExtra("key", "value");
         startActivity(intent);
     }
 }
