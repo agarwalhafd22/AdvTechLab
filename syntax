@@ -225,6 +225,40 @@ Intent Syntax
 
 
 
+      //for passing of arrays(String, int, double: all same)
+
+      // First Activity:
+        String[] myArray = {"Item 1", "Item 2", "Item 3"};
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        intent.putExtra("key", myArray);
+        startActivity(intent);
+
+      // Second Activity:
+        Intent intent = getIntent();
+        String[] receivedArray = getIntent().getStringArrayExtra("key");
+
+
+
+      //for passing of ArrayList(String)
+
+      // First Activity:
+        ArrayList<String> myList = new ArrayList<>();
+        myList.add("Item 1");
+        myList.add("Item 2");
+        myList.add("Item 3");
+
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        intent.putStringArrayListExtra("key", myList);
+        startActivity(intent);
+
+
+      // Second Activity:
+        Intent intent = getIntent();
+        ArrayList<String> receivedList = getIntent().getStringArrayListExtra("key");
+
+       
+
+
 Spinner Syntax
 
 
