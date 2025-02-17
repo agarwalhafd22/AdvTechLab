@@ -10,7 +10,6 @@
     android:id="@+id/main"
     tools:context=".MainActivity">
 
-    <!-- Title -->
     <TextView
         android:id="@+id/textview"
         android:text="Music Player"
@@ -23,7 +22,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <!-- Subtitle -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -36,7 +34,7 @@
         android:textSize="18sp"
         android:layout_marginTop="4dp" />
 
-    <!-- Album Art with CardView for elevation and rounded corners -->
+
     <androidx.cardview.widget.CardView
         android:layout_width="280dp"
         android:layout_height="280dp"
@@ -55,7 +53,6 @@
             android:contentDescription="Album artwork" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Song Title (using textView4 id) -->
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -72,7 +69,7 @@
         android:ellipsize="end"
         android:maxLines="1" />
 
-    <!-- Time Labels -->
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -95,7 +92,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="4dp" />
 
-    <!-- SeekBar with improved style -->
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
@@ -106,7 +103,7 @@
         android:thumbTint="#1DB954"
         android:progressBackgroundTint="#4D1DB954" />
 
-    <!-- Control Buttons in a container for better alignment -->
+ 
     <LinearLayout
         android:id="@+id/controlsContainer"
         android:layout_width="match_parent"
