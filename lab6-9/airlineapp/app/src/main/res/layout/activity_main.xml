@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:gravity="center" android:padding="16dp">
+
+    <Button android:id="@+id/btnSearchFlights" android:text="Search Flights"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnBookingHistory" android:text="View Booking History"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

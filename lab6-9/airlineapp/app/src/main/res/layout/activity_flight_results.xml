@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="16dp">
+
+    <TextView android:id="@+id/txtResults" android:textSize="18sp"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnBook" android:text="Book Now"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

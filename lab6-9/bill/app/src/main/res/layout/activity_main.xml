@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budget:"
+        android:textSize="20sp"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tvLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limit:"
+        android:textSize="20sp"
+        android:paddingBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnUpdateBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Budget" />
+
+    <Button
+        android:id="@+id/btnAddExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Expense" />
+
+    <Button
+        android:id="@+id/btnViewExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Expenses" />
+
+    <Button
+        android:id="@+id/btnReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Bill Reminder" />
+
+</LinearLayout>
